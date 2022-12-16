@@ -166,15 +166,16 @@ body {
 /* Config Modal */
 
 .modaly {
-  position: fixed;
-  left: 0;
-  top: -510px;
-  right: -110px;
-  bottom: 0;
+  position: relative;
+  left: 5px;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: rgb(86, 90, 105);
+  background-color: white !important;
 
 }
 

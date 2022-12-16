@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const CurrencyField = props => {
+const CurrencyField = (props) => {
   const getPrice = (value) => {
-    props.getSwapPrice(value)
-  }
+    props.getSwapPrice(value);
+  };
 
   return (
     <div className="row currencyInput">
@@ -16,19 +16,31 @@ const CurrencyField = props => {
           <input
             className="currencyInputField"
             placeholder="0.0"
+            disabled={props.field === "output" ? true : false}
+            readOnly={props.field === "output" ? true : false}
             value={props.value}
-            onBlur={e => (props.field === 'input' ? getPrice(e.target.value) : null)}
+            onBlur={(e) =>
+              props.field === "input" ? getPrice(e.target.value) : null
+            }
           />
         )}
       </div>
       <div className="col-md-6 tokenContainer">
-        <span className="tokenName">{props.tokenName}</span>
+        <span
+          className="tokenName"
+          onClick={() => {
+            alert("TODO: modal to chose the token");
+          }}
+        >
+          {props.tokenName}
+        </span>
         <div className="balanceContainer">
-          <span className="balanceAmount">Balance: {props.balance?.toFixed(3)}</span>
+          <span className="balanceAmount">Balance: </span>
+          {/* {props.balance.toFixed(3)} */}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CurrencyField
+export default CurrencyField;

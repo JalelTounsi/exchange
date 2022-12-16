@@ -1,17 +1,24 @@
 import React from "react";
-import PageButton from "./PageButton.jsx";
+import PageButton from "./../components/PageButton";
+
 const ConnectButton = (props) => {
   const { isConnected, signerAddress, getSigner, provider } = props;
-  const displayAddress = `${signerAddress?.substring(0, 10)}...`;
+  const displayAddress = signerAddress !== undefined ? `${signerAddress.substring(0, 10)}...` : "";
+
   return (
     <>
       {isConnected() ? (
         <div className="buttonContainer">
-          <PageButton name={displayAddress} />
+          {" "}
+          <PageButton name={displayAddress} />{" "}
         </div>
       ) : (
-        <div className="my-2 connectButton" onClick={() => getSigner(provider)}>
-          Connect Wallet
+        <div
+          className="btn my-2 connectButton"
+          onClick={() => getSigner(provider)}
+        >
+          {" "}
+          Connect Wallet{" "}
         </div>
       )}
     </>

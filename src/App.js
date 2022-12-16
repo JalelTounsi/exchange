@@ -1,4 +1,5 @@
 import './App.css';
+import React  from 'react';
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { GearFill } from 'react-bootstrap-icons';
@@ -110,17 +111,9 @@ function App() {
             />
           </div>
           <div className="my-2 buttonContainer">
-            <PageButton name={"..."} isBold={true} />
-          </div>
-        </div>
-      </div>
-
-      <div className="appBody">
-        <div className="swapContainer">
-          <div className="swapHeader">
-            <span className="swapText">Swap</span>
+            <PageButton name={""} isBold={true}/>
             <span className="gearContainer" onClick={() => setShowModal(true)}>
-              <GearFill />
+            <GearFill />
             </span>
             {showModal && (
               <ConfigModal
@@ -130,6 +123,17 @@ function App() {
                 setSlippageAmount={setSlippageAmount}
                 slippageAmount={slippageAmount} />
             )}
+          </div>
+        </div>
+      </div>
+
+      <div className="appBody">
+        <div className="swapContainer">
+          <div className="swapHeader">
+            <span className="swapText">Swap</span>
+            <span className="gearContainer">
+              <GearFill />
+            </span>
           </div>
 
           <div className="swapBody">
@@ -146,6 +150,8 @@ function App() {
               signer={signer}
               balance={uniAmount}
               spinner={BeatLoader}
+              disabled={"output"}
+              readOnly={"output"}
               loading={loading} />
           </div>
 
